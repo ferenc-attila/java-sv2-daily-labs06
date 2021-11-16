@@ -3,7 +3,7 @@ package day02.cars;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CarShopTest {
 
@@ -27,8 +27,17 @@ public class CarShopTest {
     }
 
     @Test
+    void createCarShopTest() {
+        CarShop carShop1 = new CarShop("Best Car", 10_000_000);
+                assertEquals("Best Car", carShop1.getName());
+                assertEquals(10_000_000, carShop1.getMaxPrice());
+    }
+
+    @Test
     void addCarTest() {
-        assertEquals(3, carShop.getCarsForSell().size());
+        assertTrue(carShop.addCar(car1));
+        assertFalse(carShop.addCar(car2));
+        assertEquals(4, carShop.getCarsForSell().size());
     }
 
     @Test
@@ -45,8 +54,6 @@ public class CarShopTest {
     @Test
     void carsWithBrandTest() {
         assertEquals(2, carShop.carsWithBrand("Toyota").size());
+        assertEquals(0, carShop.carsWithBrand("Lamborghini").size());
     }
-
-
-
 }
