@@ -30,7 +30,7 @@ public class HangmanMain {
     }
 
     private void printMainText() {
-        StringBuilder text = new StringBuilder("");
+        StringBuilder text = new StringBuilder();
         text.append("Itt tartasz: ").append(wordFound).append("\n");
         text.append("Ennyi tipped van hátra: ").append(chances).append("\n");
         text.append("Mi a következő tipped?");
@@ -39,8 +39,7 @@ public class HangmanMain {
 
     private String getGuessFromUser() {
         Scanner sc = new Scanner(System.in);
-        String guess = sc.nextLine();
-        return guess;
+        return sc.nextLine();
     }
 
     private void printResult () {
